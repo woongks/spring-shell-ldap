@@ -1,4 +1,4 @@
-package site.lamesa.spring_shell_ldap.commands.basic;
+package site.lamesa.spring_shell_ldap.config.basic;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
