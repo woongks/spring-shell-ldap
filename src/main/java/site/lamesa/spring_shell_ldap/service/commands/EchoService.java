@@ -1,4 +1,4 @@
-package site.lamesa.spring_shell_ldap.service;
+package site.lamesa.spring_shell_ldap.service.commands;
 
 import org.springframework.stereotype.Service;
 

@@ -3,7 +3,7 @@ package site.lamesa.spring_shell_ldap.commands.basic;
 import org.jline.terminal.Terminal;
 import org.springframework.shell.command.CommandRegistration;
 import org.springframework.stereotype.Component;
-import site.lamesa.spring_shell_ldap.service.EchoService;
+import site.lamesa.spring_shell_ldap.service.commands.EchoService;
 
 import java.util.Arrays;
 
