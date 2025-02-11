@@ -22,6 +22,7 @@ public class EchoCommand {
         return builder.get()
                 .command("echo")
                 .description("Prints the given input arguments")
+                .group("basic")
                 .withTarget()
                 .consumer(ctx -> {
                     String[] rawArgs = ctx.getRawArgs();

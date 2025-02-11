@@ -20,6 +20,7 @@ public class HelloCommand {
         return builder.get()
                 .command("hello")
                 .description("Say hello")
+                .group("basic")
                 .withTarget()
                 .consumer(ctx -> {
                     String hello = helloService.hello();
