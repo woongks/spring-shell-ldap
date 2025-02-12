@@ -1,6 +1,5 @@
 package site.lamesa.spring_shell_ldap.commands.game;
 
-import org.jline.terminal.Terminal;
 import org.springframework.shell.command.CommandRegistration;
 import org.springframework.stereotype.Component;
 import site.lamesa.spring_shell_ldap.service.commands.CreateService;
@@ -11,11 +10,9 @@ import java.util.Arrays;
 public class CreateCommand {
 
     private final CreateService createService;
-    private final Terminal terminal;
 
-    public CreateCommand(CreateService createService, Terminal terminal) {
+    public CreateCommand(CreateService createService) {
         this.createService = createService;
-        this.terminal = terminal;
     }
 
     public CommandRegistration createCommand(CommandRegistration.BuilderSupplier builder) {
@@ -28,8 +25,8 @@ public class CreateCommand {
                     String[] rawArgs = ctx.getRawArgs();
                     String[] args = Arrays.copyOfRange(rawArgs,1,rawArgs.length);
                     String output = createService.create(args);
-                    terminal.writer().println("created: " + output);
-                    terminal.flush();
+                    ctx.getTerminal().writer().println("created: " + output);
+                    ctx.getTerminal().flush();
                 })
                 .and()
                 .build();

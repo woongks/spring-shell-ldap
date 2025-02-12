@@ -1,6 +1,5 @@
 package site.lamesa.spring_shell_ldap.commands.basic;
 
-import org.jline.terminal.Terminal;
 import org.springframework.shell.command.CommandRegistration;
 import org.springframework.stereotype.Component;
 import site.lamesa.spring_shell_ldap.service.commands.HelloService;
@@ -9,11 +8,9 @@ import site.lamesa.spring_shell_ldap.service.commands.HelloService;
 public class HelloCommand {
 
     private final HelloService helloService;
-    private final Terminal terminal;
 
-    public HelloCommand(HelloService helloService, Terminal terminal) {
+    public HelloCommand(HelloService helloService) {
         this.helloService = helloService;
-        this.terminal = terminal;
     }
 
     public CommandRegistration helloCommand(CommandRegistration.BuilderSupplier builder) {
@@ -24,8 +21,8 @@ public class HelloCommand {
                 .withTarget()
                 .consumer(ctx -> {
                     String hello = helloService.hello();
-                    terminal.writer().println(hello);
-                    terminal.flush();
+                    ctx.getTerminal().writer().println(hello);
+                    ctx.getTerminal().flush();
                 })
                 .and()
                 .build();
